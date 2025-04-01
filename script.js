@@ -1,18 +1,20 @@
- /*Create a new function named "getComputerChoice"
-        getComputerChoice will randomly return strings "rock," "paper" or "scissors"
-        Use "Math.random" to return one of the choices
-        Note: Maybe try setting 0-0.33 return rock, 0.34-0.66 retun paper 0.66-1 return scissors*/
-        
-        /* function getComputerChoice
-        return Math.random
-        console.log(getRandom());
-        if getComputerChoice is < 3 return rock
-        else if getComputerChoice is >= 3 && <= 6 return paper
-        else return scissors
+/*Create a new function named "getComputerChoice"
+getComputerChoice will randomly return strings "rock," "paper" or "scissors"
+Use "Math.random" to return one of the choices
+Note: Maybe try setting 0-0.33 return rock, 0.34-0.66 retun paper 0.66-1 return scissors*/
+
+/* function getComputerChoice
+return Math.random
+console.log(getRandom());
+if getComputerChoice is < 3 return rock
+else if getComputerChoice is >= 3 && <= 6 return paper
+else return scissors
 */
+
 let computerScore = 0;
 let humanScore = 0;
 
+/*Generates Rock, Paper or Scissors*/
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 10);
     if (num <= 3) {
@@ -24,16 +26,21 @@ function getComputerChoice() {
     }
 }
 
+/*Gets human's input*/
 function getHumanChoice() {
     let pick = prompt("Enter Rock, Paper or Scissors");
-    return pick;
-}
+    let actualPick = pick.toLowerCase();
+    return actualPick.chatAt(0).toUpperCase(1) + actualPick.slice(1);
+    }
+    
 
 function playRound(humanChoice, computerChoice) { 
+    
     humanChoice = getHumanChoice();
     computerChouce = getComputerChoice();
+    
     if (humanChoice === computerChoice) {
-        return Tie;
+        console.log("Tie");
     } else if (humanChoice === "Rock" && computerChoice === "Paper") {
         console.log("You lost. Paper beats Rock.");
     } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
